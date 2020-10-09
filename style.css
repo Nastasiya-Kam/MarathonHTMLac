@@ -519,7 +519,7 @@ main {
 /* Страница со статьёй "Как себя мотивировать" */
 .entry {
     width: 998px;
-    min-height: 1152px;
+    /* min-height: 1152px; */
 }
 
 .entry .item-article__tags {
@@ -589,23 +589,21 @@ main {
 .comments {
     margin-top: 65px;
     width: 793px;
-    min-height: 429px;
     box-sizing: border-box;
-    padding-top: 44px;
-    padding-right: 79px;
-    padding-left: 102px;
-    padding-bottom: 44px;
-
-    background: var(--basic-ash-rose);
+    padding-top: 43px;
+    padding-right: 75px;
+    padding-left: 101px;
+    border: 1px solid var(--basic-ash-rose);
     border-radius: 10px;
+    background: var(--basic-ash-rose);
 }
 
 .comments__list {
     list-style: none;
 }
 
-.comments__item:not(:last-of-type) {
-    margin-bottom: 39px;
+.comments__item {
+    margin-bottom: 42px;
 }
 
 .comments__userpic {
