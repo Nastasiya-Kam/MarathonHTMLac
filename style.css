@@ -357,19 +357,27 @@ main {
 
 .portfolio__container {
     margin-top: 49px;
-    margin-bottom: 104px;
-    height: 525px;
+    margin-bottom: 84px;
 
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .portfolio__item {
     text-align: center;
     width: 387px;
+    height: 525px;
+    margin-bottom: 20px;
+
+    flex-basis: 387px;
     border-radius: 10px;
     filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15));
     overflow: hidden;
+}
+
+.portfolio__item:not(:nth-of-type(3n)):not(:last-of-type) {
+    margin-right: 19px;
 }
 
 .portfolio__item:nth-of-type(2) {
@@ -489,14 +497,15 @@ main {
 }
 
 .footer__list {
-    height: 155px;
+    list-style: none;
+
+    min-height: 155px;
+    padding-bottom: 26px;
 
     display: flex;
-    list-style: none;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    
-    padding-bottom: 26px;
 }
 
 .footer__item:not(:last-of-type) {
