@@ -13,6 +13,8 @@
     --extra--font: "Spectral SC", serif;
 
     --page-padding: 120px;
+
+    --up-button-background: snow;
 }
 
 * {
@@ -22,8 +24,12 @@
 
 *:focus {
     outline: 3px solid transparent;
-    /* filter: drop-shadow(0 0 4px rebeccapurple); */
     filter: drop-shadow(0 0 4px #994949);
+}
+
+.focus-dark:focus {
+    filter: drop-shadow(0 0 1px var(--basic-light));
+    opacity: 0.8;
 }
 
 .clearfix::after {
@@ -39,6 +45,10 @@
     width: 1px;
     height: 1px;
     margin: -1px;
+}
+
+.hidden {
+    display: none;
 }
 
 .container {
@@ -92,6 +102,34 @@ img {
     text-transform: uppercase;
 }
 
+.button:active { 
+    box-shadow: inset 0px 0px 2px var(--basic-black);
+}
+
+.up-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding-top: 15px;
+    padding-right: 30px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+
+    background-color: var(--up-button-background);
+    border: 1px solid var(--basic-ash-rose);
+    border-radius: 10px;
+    opacity: 0.6;
+
+    font-weight: 700;
+    font-family: 'Open Sans';
+    text-transform: uppercase;
+}
+
+.up-button:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
 .page-header {
     background-color: var(--basic-ash-rose);
     background-image: url("img/header-index.jpg");
@@ -111,12 +149,15 @@ img {
     padding-top: 4px;
 
     font-size: 18px;
-    line-height: 25px;
+    line-height: 13px;
+
+    display: flex;
 }
 
 .logo__link {
-    float: left;
-    height: 83px;
+    margin-right: auto;
+    flex-shrink: 0;
+    /* height: 83px; */
 }
 
 .logo__link:hover {
@@ -125,10 +166,10 @@ img {
 
 .site-navigation__list {
     list-style: none;
-    height: 82px;
 
     display: flex;
     justify-content: flex-end;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -151,19 +192,21 @@ main {
     margin-top: 85px;
 }
 
+/* Все статьи. Header */
+
 .header-articles {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 49px;
 }
 
 .header-articles__select {
     position: relative;
-
 }
 
 .header-articles__select::after {
     content: "";
-    background-image: url("img/Polygon1.svg");
+    background-image: url("img/polygon.svg");
     background-repeat: no-repeat;
     width: 19px;
     height: 15px;
@@ -184,51 +227,29 @@ main {
     appearance: none;
 }
 
-.header-articles {
-    margin-bottom: 49px;
+/* Все статьи. Основной контект */
+
+.articles__entry {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    margin-right: -18px;
+    margin-bottom: 35px;
 }
 
 .articles__item {
-    position: relative;
-}
-
-.item-article__text {
-    position: absolute;
-    top: 340px;
-    left: 82px;
-    width: 429px;
+    margin-bottom: 62px;
+    margin-right: 19px;
+    box-sizing: border-box;
 }
 
 .item-article__img {
     border-radius: 10px;
 }
 
-.item-article__content {
-    margin-top: 8px;
-    /* margin-bottom: 12px; */
-}
-
-.item-article__tags {
-    display: flex;
-    justify-content: space-between;
-}
-
-.item {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-    margin-bottom: 104px;
-}
-
-.articles__item {
+.articles__item--mini {
     width: 387px;
-}
-
-.articles__item--big {
-    width: 590px;
-    margin-top: 81px;
-    /* margin-bottom: 97px; */
 }
 
 .item-article__title {
@@ -236,67 +257,73 @@ main {
     font-weight: bold;
     font-size: 18px;
     line-height: 27px;
+    
     margin-top: 20px;
+    margin-bottom: 8px;
 }
 
 .item-article__link {
-    color: var(--basic-text-dark);
-
-    height:100%;
     display: block;
-    
-    margin-bottom: -7px;
+
+    color: inherit;
 }
 
 .item-article__link:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+}
+
+.item-article__tags {
+    margin-top: 12px;
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 16px;
+    line-height: 26px;
     color: var(--basic-text-dark-opacity);
 }
 
-.item-article__link:hover .item-article__img,
-.item-article__link:focus .item-article__img {
-    opacity: 0.8;
-}
-
-.tags-article__link,
-.item-article__tags,
-.item-article__datetime {
-    color: var(--basic-text-dark-opacity);
+.tags-article__link {
+    color: inherit;
 }
 
 .tags-article__link:hover {
-    color: var(--basic-dark);
+    text-decoration: underline;
+    opacity: 0.6;
+}
+
+.articles__item--big {
+    position: relative;
+    width: 590px;
+    color: var(--basic-text-white);
+}
+
+.item-article__text {
+    position: absolute;
+    top: 339px;
+    left: 82px;
 }
 
 .articles__item--big .item-article__title {
-    font-family: var(--extra--font);
-    color: var(--basic-text-white);
     font-size: 20px;
     line-height: 30px;
 }
 
 .articles__item--big .item-article__content {
-    color: var(--basic-text-white);
     font-size: 18px;
     line-height: 28px;
 }
 
-.articles__item--big .item-article__tags,
-.articles__item--big .tags-article__link,
-.articles__item--big .item-article__datetime {
+.articles__item--big .item-article__tags {
     color: var(--basic-text-white-opacity);
 }
 
-.articles__item--big .item-article__content {
-    margin-bottom: 10px;
+.articles__item--big .item-article__link {
+    color: inherit;
 }
 
-.articles__item--big .tags-article__link:hover {
-    color: var(--basic-text-white);
-}
-
-.articles__item--big .tags-article__link:focus {
-    color: var(--basic-text-white);
-    filter: drop-shadow(0 0 4px var(--basic-text-white));
+.item-article__text {
+    width: 428px;
 }
 
 /* Стили для About Anne */
@@ -415,6 +442,10 @@ main {
     color: inherit;
 }
 
+.item-portfolio__link:hover {
+    text-decoration: underline;
+}
+
 /* Написать мне */
 .write-us {
     margin-top: 85px;
@@ -428,7 +459,6 @@ main {
     height: 584px;
     padding-top: 53px;
     padding-right: 81px;
-    /* padding-bottom: 81px; */
     padding-left: 81px;
 
     font-size: 18px;
@@ -516,10 +546,14 @@ main {
     color: inherit;
 }
 
+.footer__link:hover,
+.footer__link:focus {
+    color: var(--basic-text-white);
+}
+
 /* Страница со статьёй "Как себя мотивировать" */
 .entry {
     width: 998px;
-    /* min-height: 1152px; */
 }
 
 .entry .item-article__tags {
@@ -557,8 +591,13 @@ main {
     color: inherit;
 }
 
+.like:hover {
+    cursor: pointer;
+}
+
 .like.added {
-    background-color: red;
+    font-weight: 700;
+    color: var(--basic-text-dark);
 }
 
 .likes-number {
@@ -570,9 +609,13 @@ main {
     display: flex;
 }
 
-.entry__socials a {
+.socials-entry__link {
     display: block;
     height: 50px;
+}
+
+.socials-entry__link:hover {
+    opacity: 0.6;
 }
 
 .socials-entry__item:not(:last-of-type) {
@@ -584,6 +627,10 @@ main {
     font-size: 36px;
     line-height: 49px;
     font-weight: 700;
+}
+
+.back-home img {
+    padding-left: 18px;
 }
 
 .comments {
