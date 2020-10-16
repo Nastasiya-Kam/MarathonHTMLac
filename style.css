@@ -92,6 +92,7 @@ img {
     width: 224px;
     height: 46px;
     background-color: transparent;
+    color: var(--basic-dark);
     font-family: inherit;
     font-size: 16px;
     display: block;
@@ -104,6 +105,10 @@ img {
 
 .button:active { 
     box-shadow: inset 0px 0px 2px var(--basic-black);
+}
+
+.button:disabled {
+    opacity: 0.5;
 }
 
 .up-button {
