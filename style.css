@@ -178,12 +178,14 @@ img {
     align-items: center;
 }
 
-.site-navigation__item:not(:first-of-type) {
-    margin-left: 84px;
-}
-
 .site-navigation__link {
     color: var(--basic-text-dark);
+    display: block;
+    padding: 35px 42px;
+}
+
+.site-navigation__item:last-of-type .site-navigation__link {
+    padding-right: 0;
 }
 
 .site-navigation__link:hover,
@@ -192,13 +194,11 @@ img {
 }
 
 /* Все статьи */
-
 main {
     margin-top: 85px;
 }
 
 /* Все статьи. Header */
-
 .header-articles {
     display: flex;
     justify-content: space-between;
