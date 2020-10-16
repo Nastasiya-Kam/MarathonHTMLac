@@ -723,12 +723,6 @@ main {
     float: right;
 }
 
-/* .leave-comments textarea:focus {
-    background-color: rebeccapurple;
-    box-shadow: 0 0 4px 1px rebeccapurple;
-    outline: 3px solid transparent;
-} */
-
 .leave-comments .warning,
 .write-us .warning {
     color: red;
@@ -741,12 +735,3 @@ main {
     border: none;
     border-bottom: 1px solid var(--basic-text-dark);
 }
-
-
-
-
-
-/* font-family: "Spectral SC", serif; */
-
-/* ?https://hankchizljaw.com/wrote/create-a-semantic-breakout-button-to-make-an-entire-element-clickable/ */
-/* ?Как сделать всю область кликабельной */
